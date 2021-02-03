@@ -50,7 +50,7 @@ with open(html_path, 'w', encoding="utf-8") as f:
 app = Flask(__name__)
 
 
-@app.route("/getTable", methods=("POST", "GET"))
+@app.route("/", methods=("POST", "GET"))
 def get_table():        
     return render_template("table.html")
     
