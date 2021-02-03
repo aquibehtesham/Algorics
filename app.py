@@ -41,11 +41,6 @@ def df_html(df):
     return base_html % df_html
 
 
-html_path = os.path.join(current_dir,'templates/table.html')
-
-with open(html_path, 'w', encoding="utf-8") as f:
-    f.write(df_html(df))
-    
     
 app = Flask(__name__)
 
