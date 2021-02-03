@@ -4,7 +4,12 @@ from flask import (Flask, flash, redirect, render_template,
                    request, session, abort)
 
 
-data = json.load(open("playlist.json", "r"))
+import os 
+current_dir = os.path.dirname(os.path.realpath(__file__))
+
+json_path = os.path.join(current_dir,"playlist.json")
+
+data = json.load(open(json_path, "r"))
 final_list = []
 
 for i in range(0,len(data[next(iter(data))])):
@@ -35,7 +40,10 @@ def df_html(df):
     df_html = df.to_html()
     return base_html % df_html
 
-with open('templates/table.html', 'w', encoding="utf-8") as f:
+
+html_path = os.path.join(current_dir,'templates/table.html')
+
+with open(html_path, 'w', encoding="utf-8") as f:
     f.write(df_html(df))
     
     
